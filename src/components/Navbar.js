@@ -16,17 +16,17 @@ const Navbar = () => {
 
   return (
       <nav className={`navbar ${isMobile ? 'mobile' : ''}`}>
-          <h1 onClick={handleHomeClick}><Link to="/">NovaDiscs</Link></h1>
+          <h1 onClick={handleHomeClick}><Link to="/">ECDGT</Link></h1>
           <div className="menu-icon" onClick={handleMenuClick}>
               <div className={`bar ${isMobile ? 'open' : ''}`}/>
               <div className={`bar ${isMobile ? 'open' : ''}`}/>
               <div className={`bar ${isMobile ? 'open' : ''}`}/>
           </div>
           <ul className={`nav-list ${isMobile ? 'mobile' : ''}`}>
-              <li className="nav-item" onClick={handleMenuClick}><Link to="/standings">Standings</Link></li>
-              <li className="nav-item" onClick={handleMenuClick}><Link to="/scorecard">Scorecard</Link></li>
-              <li className="nav-item" onClick={handleMenuClick}><Link to="/players">Players</Link></li>
-              <li className="nav-item" onClick={handleMenuClick}><Link to="/my_scores">My Scores</Link></li>
+              <li className="nav-item" onClick={handleMenuClick}><Link to="/about">About</Link></li>
+              <li className="nav-item" onClick={handleMenuClick}><Link to="/tour_dates">Tour Dates</Link></li>
+              <li className="nav-item" onClick={handleMenuClick}><Link to="/tour_standings">Tour Standings</Link></li>
+              <li className="nav-item" onClick={handleMenuClick}><Link to="/contact">Contact</Link></li>
           </ul>
       </nav>
   )
