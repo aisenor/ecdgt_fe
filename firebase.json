@@ -1,0 +1,28 @@
+{
+  "hosting": {
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/standings/**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/scorecard/**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/players/**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
