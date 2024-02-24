@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Contact.module.css';
 import MailIcon from './images/envelope.png'
 
@@ -16,7 +16,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/contact/`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/contact/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
