@@ -1,5 +1,9 @@
 name: Deploy to Firebase Hosting on merge
 on:
+  workflow_run:
+    workflows: ["Build React App"]
+    types:
+      - completed
   push:
     branches:
       - main
