@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './About.module.css';
 import discGolfImage from './images/stock.jpg'
 
 const About = () => {
-  const [data, setData] = useState({});
-
-    useEffect(() => {
-      fetch(`${process.env.REACT_APP_API_URL}/about`)
-        .then(response => response.json())
-        .then(data => setData(data))
-        .catch(error => console.error('Error fetching data:', error));
-    }, []);
+  // const [data, setData] = useState({});
+  //
+  //   useEffect(() => {
+  //     fetch(`${process.env.REACT_APP_API_URL}/about`)
+  //       .then(response => response.json())
+  //       .then(data => setData(data))
+  //       .catch(error => console.error('Error fetching data:', error));
+  //   }, []);
 
   return (
     <div>
