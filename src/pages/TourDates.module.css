@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendarContainer {
+    width: 100vw;
+    /*min-width: 75%;*/
+    /*max-width: 95%;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitButton {
+    background-image: linear-gradient(to right, #9ED8DB, #467599); /* Gradient from left to right */
+    color: white;
+    opacity: 1;
+    font-weight: bold;
+    font-size: 100%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    /*max-width: 100%;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 400px;
+    max-width: 500px;
+    /*margin: 0 auto;*/
+    border-radius: 25px;
+
+    &:hover {
+        background-image: linear-gradient(to right, #467599, #9ED8DB);
+        color: #1D3354;
+    }
+}

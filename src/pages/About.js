@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './About.module.css';
 import discGolfImage from './images/stock.jpg'
 
 const About = () => {
@@ -14,8 +15,10 @@ const About = () => {
   return (
     <div>
       <h1>About the East Coast Disc Golf Tour</h1>
-        <img src={discGolfImage} alt="Disc Golf" />
-        <h2>Smaller points to be made</h2>
+      <div className={styles.container}>
+        <img src={discGolfImage} alt="Disc Golf"/>
+      </div>
+      <h2>Smaller points to be made</h2>
       <p>and things about them</p>
     </div>
   );

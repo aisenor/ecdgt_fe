@@ -1,22 +1,44 @@
+body {
+    background-color: #f0f0f0;
+}
+
+img {
+    max-width: 400px;
+}
+
 .container {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*max-width: 500px;*/
+    /*margin: 0 auto;*/
+}
+
+.page {
+    font-size: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
+    color: #1D3354;
 }
 
-.page {
-    margin-bottom: 20px;
-    font-size: 24px;
+.formContainer {
+    display: flex;
+    justify-content: space-between; /* To create space between the image and form */
+    align-items: flex-start; /* To align items at the top */
+    max-width: 100vw;
+    margin: 0 auto;
 }
 
 .form {
-    background-color: #f0f0f0;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    min-width: 75%;
-    max-width: 95%;
+    min-width: 45%;
 }
 
 .inputGroup {
@@ -31,30 +53,54 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
-    width: 90%;
+    width: 95%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
+    background-image: linear-gradient(to right, #9ED8DB, #467599); /* Gradient from left to right */
+    color: white;
+    opacity: 1;
+    font-weight: bold;
+    font-size: 100%;
+
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 25px;
+
+    &:hover {
+        background-image: linear-gradient(to right, #467599, #9ED8DB);
+        color: #1D3354;
+    }
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
+@media screen and (max-width: 949px) {
+    .contactFormImageContainer {
+        display: none;
+    }
 
-.submitButton{
-    /*margin-left: 100px;*/
-    justify-content: flex-end;
-    justify-items: flex-end;
-    justify-self: flex-end;
+    .form {
+        min-width: 95%;
+        max-width: 100vw;
+    }
 
+    .formContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 95%;
+        margin: 0 auto;
+    }
 }

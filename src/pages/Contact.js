@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Contact.module.css';
+import MailIcon from './images/envelope.png'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -33,41 +34,49 @@ const Contact = () => {
         <div className={styles.page}>
           <h2>Contact Us</h2>
         </div>
+        <div className={styles.formContainer}>
+          <div className={styles.contactFormImageContainer}>
+            <img src={MailIcon} alt="Disc Golf"/>
 
-        <div className={styles.form}>
+          </div>
+
+          <div className={styles.form}>
           <form onSubmit={handleSubmit}>
-            <div className={styles.inputGroup}>
-              <label>Name:</label>
-              <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-              />
-            </div>
-            <div className={styles.inputGroup}>
-              <label>Email:</label>
-              <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-              />
-            </div>
-            <div className={styles.inputGroup}>
-              <label>Message:</label>
-              <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-              />
-            </div>
-            <button type="submit" className={styles.submitButton}>Submit</button>
-          </form>
+              <div className={styles.inputGroup}>
+                <label>Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                />
+              </div>
+              <div className={styles.inputGroup}>
+                <label>Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                />
+              </div>
+              <div className={styles.inputGroup}>
+                <label>Message</label>
+                <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                />
+              </div>
+              <br/>
+              <button type="submit" className={styles.submitButton}>Submit</button>
+            </form>
+          </div>
         </div>
+
       </div>
   );
 };
