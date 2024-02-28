@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
+import styles from './Navbar.css';
+
+import logo from '../pages/images/dark_logo.png';
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -16,7 +19,9 @@ const Navbar = () => {
 
   return (
       <nav className={`navbar ${isMobile ? 'mobile' : ''}`}>
-          <h1 onClick={handleHomeClick}><Link to="/">ECDGT</Link></h1>
+          <Link to="/" onClick={handleHomeClick} className={styles.navLogo}>
+              <img src={logo} alt="Company Logo" className="logo" onClick={handleHomeClick}/>
+          </Link>
           <div className="menu-icon" onClick={handleMenuClick}>
               <div className={`bar ${isMobile ? 'open' : ''}`}/>
               <div className={`bar ${isMobile ? 'open' : ''}`}/>

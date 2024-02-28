@@ -25,7 +25,7 @@
     margin-top: 10px;
 
     border: none;
-    padding: 10px 20px;
+    padding: 10px 40px;
     cursor: pointer;
 
     /*max-width: 100%;*/
@@ -33,13 +33,56 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 400px;
-    max-width: 500px;
+    max-width: 200px;
     /*margin: 0 auto;*/
     border-radius: 25px;
 
     &:hover {
         background-image: linear-gradient(to right, #467599, #9ED8DB);
         color: #1D3354;
+    }
+}
+
+.eventOnDay {
+    color: #467599;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Display ellipsis for overflow text */
+    text-wrap: wrap;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    width: 100%;
+
+}
+
+.selected {
+    color: white;
+    font-weight: normal;
+}
+
+.blap {
+    width: 100%;
+    text-align: center;
+}
+
+.registrationContainer {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.eventProvinceContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+    gap: 20px;
+
+    p {
+        margin: 0;
     }
 }

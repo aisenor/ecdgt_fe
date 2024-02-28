@@ -42,13 +42,22 @@ const TourDates = () => {
         }
     };
 
-    const tileContent = ({ date }) => {
+    const tileContent = ({ date, view }) => {
+        const isSelected = date.getTime() === selectedDate.getTime(); // Check if the date is selected
         const eventForDay = tourDates.find(event => event.date === date.toISOString().split('T')[0]);
         if (eventForDay) {
-            return <p className={styles.eventOnDay}>{eventForDay.name}</p>;
+            return (
+                <div className={styles.eventProvinceContainer}>
+                    <p className={`${styles.eventOnDay} ${isSelected ? styles.selected : ''}`}>
+                        {eventForDay.name}<br/>
+                    </p>
+                    <p className={`${styles.eventOnDay} ${isSelected ? styles.selected : ''}`}>{eventForDay.province}</p>
+                </div>
+            );
         }
         return null;
     };
+
 
     return (
         <div className={styles.container}>
@@ -61,8 +70,11 @@ const TourDates = () => {
                     onClickDay={handleDateClick}
                 />
                 {registrationLink && (
-                    <div ref={registrationLinkRef} className={styles.submitButton} onClick={handleRegistrationClick}>
-                        <p>Registration for {eventName}:</p>
+                    <div className={styles.registrationContainer}>
+                        <p className={styles.blap}>{eventName}</p>
+                        <a ref={registrationLinkRef} className={styles.submitButton} onClick={handleRegistrationClick}>
+                            Register Here
+                        </a>
                     </div>
                 )}
             </div>
