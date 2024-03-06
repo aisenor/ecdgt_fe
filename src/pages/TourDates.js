@@ -9,6 +9,9 @@ const TourDates = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [registrationLink, setRegistrationLink] = useState(null);
     const [eventName, setEventName] = useState(null);
+    const [eventCourse, setEventCourse] = useState(null);
+    const [eventProvince, setEventProvince] = useState(null);
+    const [selectedProvince, setSelectedProvince] = useState("");
     const registrationLinkRef = useRef(null);
 
     useEffect(() => {
@@ -29,9 +32,13 @@ const TourDates = () => {
         if (eventForDay) {
             setRegistrationLink(eventForDay.link);
             setEventName(eventForDay.name);
+            setEventCourse(eventForDay.course);
+            setEventProvince(eventForDay.province);
         } else {
             setRegistrationLink(null);
             setEventName(null);
+            setEventCourse(null);
+            setEventProvince(null);
         }
         setSelectedDate(date);
     };
@@ -42,27 +49,41 @@ const TourDates = () => {
         }
     };
 
+    const handleProvinceChange = event => {
+        setSelectedProvince(event.target.value);
+    };
+
     const tileContent = ({ date, view }) => {
         const isSelected = date.getTime() === selectedDate.getTime(); // Check if the date is selected
-        const eventForDay = tourDates.find(event => event.date === date.toISOString().split('T')[0]);
-        if (eventForDay) {
-            return (
-                <div className={styles.eventProvinceContainer}>
+        const eventsForDay = tourDates.filter(event => event.date === date.toISOString().split('T')[0]);
+        const eventsForSelectedProvince = selectedProvince ? eventsForDay.filter(event => event.province === selectedProvince) : eventsForDay;
+        if (eventsForSelectedProvince.length > 0) {
+            return eventsForSelectedProvince.map(event => (
+                <div key={event.date} className={styles.eventProvinceContainer}>
                     <p className={`${styles.eventOnDay} ${isSelected ? styles.selected : ''}`}>
-                        {eventForDay.name}<br/>
+                        {event.name}<br/>
                     </p>
-                    <p className={`${styles.eventOnDay} ${isSelected ? styles.selected : ''}`}>{eventForDay.province}</p>
+                    <p className={`${styles.eventOnDay} ${isSelected ? styles.selected : ''}`}>{event.province}</p>
                 </div>
-            );
+            ));
         }
         return null;
     };
-
 
     return (
         <div className={styles.container}>
             <h2>Tour Dates</h2>
             <div className={styles.calendarContainer}>
+                {/*<p>Search for events by province</p>*/}
+                <div className={styles.selectContainer}>
+                    <select value={selectedProvince} onChange={handleProvinceChange}>
+                        <option value="">All Provinces</option>
+                         <option value="NS">Nova Scotia</option>
+                         <option value="NB">New Brunswick</option>
+                         <option value="PEI">Prince Edward Island</option>
+                         <option value="NFL">Newfoundland and Labrador</option>
+                    </select>
+                </div>
                 <Calendar
                     value={selectedDate}
                     onChange={setSelectedDate}
@@ -71,13 +92,22 @@ const TourDates = () => {
                 />
                 {registrationLink && (
                     <div className={styles.registrationContainer}>
-                        <p className={styles.blap}>{eventName}</p>
+                        <p className={styles.blap}>
+                            {eventName}
+                            <br/>
+                            <br/>
+                            <strong>Province: </strong>{eventProvince}
+                            <br/>
+                            <br/>
+                            <strong>Course: </strong>{eventCourse}
+                        </p>
                         <a ref={registrationLinkRef} className={styles.submitButton} onClick={handleRegistrationClick}>
                             Register Here
                         </a>
                     </div>
                 )}
             </div>
+
         </div>
     );
 };

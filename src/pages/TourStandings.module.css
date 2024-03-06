@@ -1,0 +1,78 @@
+.page {
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.buttonContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+
+}
+
+.divisionButton, .resetDivisionButton {
+    font-size: 1.25em;
+    border: 2px #1D3354 solid;
+    border-radius: 30px;
+    color: black;
+
+    &:hover {
+        background-color: #467599;
+        border-color: #467599;
+        color: white;
+    }
+}
+
+.resetDivisionButton {
+    white-space: nowrap;
+}
+
+
+.divisionButton.selected {
+    background-color: #1D3354;
+    color: white;
+}
+
+.styledTable {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styledTable thead tr {
+    background-color: #1D3354;
+    color: #ffffff;
+    text-align: left;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.styledTable th,
+.styledTable td {
+    padding: 12px 15px;
+}
+
+.styledTable tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styledTable-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styledTable tbody tr:last-of-type {
+    border-bottom: 2px solid #1D3354;
+}
+
+.table-container {
+    overflow-x: auto;
+    max-width: 95%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}

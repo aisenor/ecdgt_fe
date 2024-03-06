@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Contact.module.css';
-import MailIcon from './images/envelope.png'
+import MailIcon from './images/send_mail.png'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -36,8 +36,7 @@ const Contact = () => {
         </div>
         <div className={styles.formContainer}>
           <div className={styles.contactFormImageContainer}>
-            <img src={MailIcon} alt="Disc Golf"/>
-
+            <img src={MailIcon} alt="mail"/>
           </div>
 
           <div className={styles.form}>
