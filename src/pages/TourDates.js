@@ -53,7 +53,7 @@ const TourDates = () => {
         setSelectedProvince(event.target.value);
     };
 
-    const tileContent = ({ date, view }) => {
+    const tileContent = ({ date }) => {
         const isSelected = date.getTime() === selectedDate.getTime(); // Check if the date is selected
         const eventsForDay = tourDates.filter(event => event.date === date.toISOString().split('T')[0]);
         const eventsForSelectedProvince = selectedProvince ? eventsForDay.filter(event => event.province === selectedProvince) : eventsForDay;
@@ -100,9 +100,9 @@ const TourDates = () => {
                             <br/>
                             <strong>Course: </strong>{eventCourse}
                         </p>
-                        <a ref={registrationLinkRef} className={styles.submitButton} onClick={handleRegistrationClick}>
+                        <button ref={registrationLinkRef} className={styles.submitButton} onClick={handleRegistrationClick}>
                             Register Here
-                        </a>
+                        </button>
                     </div>
                 )}
             </div>
