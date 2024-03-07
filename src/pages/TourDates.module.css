@@ -45,16 +45,14 @@
 
 .eventOnDay {
     color: #467599;
-    white-space: nowrap; /* Prevent text from wrapping */
     overflow: hidden; /* Hide overflow text */
     text-overflow: ellipsis; /* Display ellipsis for overflow text */
-    text-wrap: wrap;
-
+    white-space: normal; /* Allow text wrapping */
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
     -webkit-box-orient: vertical;
     width: 100%;
-
+    font-size: 0.8em;
 }
 
 .selected {
