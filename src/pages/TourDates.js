@@ -54,6 +54,7 @@ const TourDates = () => {
     };
 
     const handleProvinceChange = event => {
+        console.log(tourDates)
         setSelectedProvince(event.target.value);
     };
 
