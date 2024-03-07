@@ -28,6 +28,8 @@ const TourDates = () => {
     }, [registrationLink]);
 
     const handleDateClick = date => {
+        console.log(date)
+        console.log(tourDates)
         const eventForDay = tourDates.find(event => event.date === date.toISOString().split('T')[0]);
         if (eventForDay) {
             console.log(eventForDay)
@@ -45,6 +47,7 @@ const TourDates = () => {
     };
 
     const handleRegistrationClick = () => {
+        console.log(tourDates)
         if (registrationLink) {
             window.open(registrationLink, '_blank');
         }
