@@ -77,10 +77,10 @@ const TourDates = () => {
                 <div className={styles.selectContainer}>
                     <select value={selectedProvince} onChange={handleProvinceChange}>
                         <option value="">All Provinces</option>
-                         <option value="NS">Nova Scotia</option>
-                         <option value="NB">New Brunswick</option>
-                         <option value="PEI">Prince Edward Island</option>
-                         <option value="NFL">Newfoundland and Labrador</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="PEI">Prince Edward Island</option>
+                        <option value="NL">Newfoundland and Labrador</option>
                     </select>
                 </div>
                 <Calendar
@@ -89,24 +89,25 @@ const TourDates = () => {
                     tileContent={tileContent}
                     onClickDay={handleDateClick}
                 />
-                {registrationLink && (
-                    <div className={styles.registrationContainer}>
-                        <p className={styles.blap}>
-                            {eventText}
-                            <br/>
-                            <br/>
-                            <strong>Province: </strong>{eventProvince}
-                            <br/>
-                            <br/>
-                            <strong>Course: </strong>{eventCourse}
-                        </p>
+                <div className={styles.registrationContainer}>
+                    <p className={styles.blap}>
+                        {eventText}
+                        <br/>
+                        <br/>
+                        <strong>Province: </strong>{eventProvince}
+                        <br/>
+                        <br/>
+                        <strong>Course: </strong>{eventCourse}
+                    </p>
+                    {registrationLink ? (
                         <button ref={registrationLinkRef} className={styles.submitButton} onClick={handleRegistrationClick}>
                             Register Here
                         </button>
-                    </div>
-                )}
+                    ) : (
+                        <p>Registration is not available yet</p>
+                    )}
+                </div>
             </div>
-
         </div>
     );
 };
