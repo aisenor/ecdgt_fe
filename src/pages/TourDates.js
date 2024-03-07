@@ -8,16 +8,16 @@ const TourDates = () => {
     const [tourDates, setTourDates] = useState([]);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [registrationLink, setRegistrationLink] = useState(null);
-    const [eventName, setEventName] = useState(null);
+    const [eventText, setEventText] = useState(null);
     const [eventCourse, setEventCourse] = useState(null);
     const [eventProvince, setEventProvince] = useState(null);
     const [selectedProvince, setSelectedProvince] = useState("");
     const registrationLinkRef = useRef(null);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}/tour_dates`)
+        fetch(`${process.env.REACT_APP_API_URL}/event`)
             .then(response => response.json())
-            .then(data => setTourDates(data.TourDates))
+            .then(data => setTourDates(data.event))
             .catch(error => console.error('Error fetching tour dates:', error));
     }, []);
 
@@ -31,12 +31,12 @@ const TourDates = () => {
         const eventForDay = tourDates.find(event => event.date === date.toISOString().split('T')[0]);
         if (eventForDay) {
             setRegistrationLink(eventForDay.link);
-            setEventName(eventForDay.name);
+            setEventText(eventForDay.text);
             setEventCourse(eventForDay.course);
             setEventProvince(eventForDay.province);
         } else {
             setRegistrationLink(null);
-            setEventName(null);
+            setEventText(null);
             setEventCourse(null);
             setEventProvince(null);
         }
@@ -61,7 +61,7 @@ const TourDates = () => {
             return eventsForSelectedProvince.map(event => (
                 <div key={event.date} className={styles.eventProvinceContainer}>
                     <p className={`${styles.eventOnDay} ${isSelected ? styles.selected : ''}`}>
-                        {event.name}<br/>
+                        {event.text}<br/>
                     </p>
                     <p className={`${styles.eventOnDay} ${isSelected ? styles.selected : ''}`}>{event.province}</p>
                 </div>
@@ -74,7 +74,6 @@ const TourDates = () => {
         <div className={styles.container}>
             <h2>Tour Dates</h2>
             <div className={styles.calendarContainer}>
-                {/*<p>Search for events by province</p>*/}
                 <div className={styles.selectContainer}>
                     <select value={selectedProvince} onChange={handleProvinceChange}>
                         <option value="">All Provinces</option>
@@ -93,7 +92,7 @@ const TourDates = () => {
                 {registrationLink && (
                     <div className={styles.registrationContainer}>
                         <p className={styles.blap}>
-                            {eventName}
+                            {eventText}
                             <br/>
                             <br/>
                             <strong>Province: </strong>{eventProvince}

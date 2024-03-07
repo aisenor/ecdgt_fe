@@ -5,11 +5,12 @@ const TourStandings = () => {
     const [divisionData, setDivisionData] = useState([]);
     const [selectedDivision, setSelectedDivision] = useState(null);
     const [tourStandings, setTourStandings] = useState([]);
+    const [players, setPlayers] = useState([]);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}/tour_standings`)
+        fetch(`${process.env.REACT_APP_API_URL}/standings`)
             .then(response => response.json())
-            .then(data => setTourStandings(data.tour_standings))
+            .then(data => setTourStandings(data.standings))
             .catch(error => console.error('Error fetching tour standings:', error));
     }, []);
 
@@ -20,12 +21,30 @@ const TourStandings = () => {
             .catch(error => console.error('Error fetching divisions:', error));
     }, []);
 
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}/player`)
+            .then(response => response.json())
+            .then(data => setPlayers(data.player))
+            .catch(error => console.error('Error fetching divisions:', error));
+    }, []);
+
+
     const handleClick = (divisionName) => {
         setSelectedDivision(divisionName);
     };
 
     const handleResetFilter = () => {
         setSelectedDivision(null);
+    };
+
+    const getDivisionName = (divisionId) => {
+        const division = divisionData.find(div => div.id === divisionId);
+        return division ? division.name : 'N/A';
+    };
+
+    const getPlayerName = (playerId) => {
+        const player = players.find(p => p.id === playerId);
+        return player ? player.name : 'N/A';
     };
 
     return (
@@ -50,25 +69,21 @@ const TourStandings = () => {
             <table className={styles.styledTable}>
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    {!selectedDivision && <th>Division</th>}
+                    <th>Rank</th>
                     <th>Name</th>
                     <th>Points</th>
-                    <th>Division</th>
-                    <th>PDGA Number</th>
-                    <th>Event</th>
                 </tr>
                 </thead>
                 <tbody>
                 {tourStandings
-                    .filter(player => !selectedDivision || player.division === selectedDivision)
+                    .filter(player => !selectedDivision || getDivisionName(player.division) === selectedDivision)
                     .map((player, index) => (
                         <tr key={index}>
-                            <td>{player.id}</td>
-                            <td>{player.name}</td>
+                            {!selectedDivision && <td>{getDivisionName(player.division)}</td>}
+                            <td>{player.rank}</td>
+                            <td>{getPlayerName(player.id)}</td>
                             <td>{player.points}</td>
-                            <td>{player.division}</td>
-                            <td>{player.pdga_number || 'N/A'}</td>
-                            <td>{player.event}</td>
                         </tr>
                     ))}
                 </tbody>
