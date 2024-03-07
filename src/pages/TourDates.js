@@ -30,6 +30,7 @@ const TourDates = () => {
     const handleDateClick = date => {
         const eventForDay = tourDates.find(event => event.date === date.toISOString().split('T')[0]);
         if (eventForDay) {
+            console.log(eventForDay)
             setRegistrationLink(eventForDay.link);
             setEventText(eventForDay.text);
             setEventCourse(eventForDay.course);
