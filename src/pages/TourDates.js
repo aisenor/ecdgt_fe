@@ -28,11 +28,9 @@ const TourDates = () => {
     }, [registrationLink]);
 
     const handleDateClick = date => {
-        console.log(date)
         console.log(tourDates)
         const eventForDay = tourDates.find(event => event.date === date.toISOString().split('T')[0]);
         if (eventForDay) {
-            console.log(eventForDay)
             setRegistrationLink(eventForDay.link);
             setEventText(eventForDay.text);
             setEventCourse(eventForDay.course);
@@ -85,7 +83,7 @@ const TourDates = () => {
                         <option value="NS">Nova Scotia</option>
                         <option value="NB">New Brunswick</option>
                         <option value="PEI">Prince Edward Island</option>
-                        <option value="NL">Newfoundland and Labrador</option>
+                        <option value="NFL">Newfoundland and Labrador</option>
                     </select>
                 </div>
                 <Calendar
@@ -94,24 +92,27 @@ const TourDates = () => {
                     tileContent={tileContent}
                     onClickDay={handleDateClick}
                 />
-                <div className={styles.registrationContainer}>
-                    <p className={styles.blap}>
-                        {eventText}
-                        <br/>
-                        <br/>
-                        <strong>Province: </strong>{eventProvince}
-                        <br/>
-                        <br/>
-                        <strong>Course: </strong>{eventCourse}
-                    </p>
-                    {registrationLink ? (
-                        <button ref={registrationLinkRef} className={styles.submitButton} onClick={handleRegistrationClick}>
-                            Register Here
-                        </button>
-                    ) : (
-                        <p>Registration is not available yet</p>
-                    )}
-                </div>
+                {eventText && (
+                    <div className={styles.registrationContainer}>
+                        <p className={styles.blap}>
+                            {eventText}
+                            <br/>
+                            <br/>
+                            <strong>Province: </strong>{eventProvince}
+                            <br/>
+                            <br/>
+                            <strong>Course: </strong>{eventCourse}
+                        </p>
+                        {registrationLink ? (
+                            <button ref={registrationLinkRef} className={styles.submitButton} onClick={handleRegistrationClick}>
+                                Register Here
+                            </button>
+                        ) : (
+                            <p>Registration is not available yet</p>
+                        )}
+                    </div>
+                    )
+                }
             </div>
         </div>
     );
