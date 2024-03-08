@@ -92,6 +92,7 @@ const TourDates = () => {
                     tileContent={tileContent}
                     onClickDay={handleDateClick}
                 />
+                <p>{selectedDate.toString()}</p>
                 <p>{eventText} {eventCourse} {eventProvince} {registrationLink}</p>
                 {eventText && (
                     <div className={styles.registrationContainer}>
