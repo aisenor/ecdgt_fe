@@ -28,7 +28,6 @@ const TourDates = () => {
     }, [registrationLink]);
 
     const handleDateClick = date => {
-        console.log(tourDates)
         const eventForDay = tourDates.find(event => event.date === date.toISOString().split('T')[0]);
         if (eventForDay) {
             setRegistrationLink(eventForDay.link);
@@ -45,14 +44,12 @@ const TourDates = () => {
     };
 
     const handleRegistrationClick = () => {
-        console.log(tourDates)
         if (registrationLink) {
             window.open(registrationLink, '_blank');
         }
     };
 
     const handleProvinceChange = event => {
-        console.log(tourDates)
         setSelectedProvince(event.target.value);
     };
 
@@ -92,8 +89,6 @@ const TourDates = () => {
                     tileContent={tileContent}
                     onClickDay={handleDateClick}
                 />
-                <p>{selectedDate.toString()}</p>
-                <p>{eventText} {eventCourse} {eventProvince} {registrationLink}</p>
                 {eventText && (
                     <div className={styles.registrationContainer}>
                         <p className={styles.blap}>
