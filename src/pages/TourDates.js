@@ -83,7 +83,7 @@ const TourDates = () => {
                         <option value="NS">Nova Scotia</option>
                         <option value="NB">New Brunswick</option>
                         <option value="PEI">Prince Edward Island</option>
-                        <option value="NFL">Newfoundland and Labrador</option>
+                        <option value="NL">Newfoundland and Labrador</option>
                     </select>
                 </div>
                 <Calendar
@@ -92,6 +92,7 @@ const TourDates = () => {
                     tileContent={tileContent}
                     onClickDay={handleDateClick}
                 />
+                <p>{eventText} {eventCourse} {eventProvince} {registrationLink}</p>
                 {eventText && (
                     <div className={styles.registrationContainer}>
                         <p className={styles.blap}>
