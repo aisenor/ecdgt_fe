@@ -13,7 +13,7 @@ const About = () => {
   //   }, []);
 
   return (
-    <div>
+    <div className={styles.page}>
       <h1>About the East Coast Disc Golf Tour</h1>
       <div className={styles.container}>
         <img src={discGolfImage} alt="Disc Golf"/>
