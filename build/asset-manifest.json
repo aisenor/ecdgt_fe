@@ -1,18 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.9195860d.css",
-    "main.js": "/static/js/main.a2daa09f.js",
+    "main.css": "/static/css/main.e0e0e3b0.css",
+    "main.js": "/static/js/main.8d2dab19.js",
     "static/js/787.418369bc.chunk.js": "/static/js/787.418369bc.chunk.js",
+    "static/media/hillsborough.jpg": "/static/media/hillsborough.f19bcfeef01d4e475808.jpg",
     "static/media/dark_logo.png": "/static/media/dark_logo.a5b83de5315059ee2fef.png",
+    "static/media/instagram.png": "/static/media/instagram.a8c6981a9c488f428cb6.png",
     "static/media/stock.jpg": "/static/media/stock.b9e15422ab7ad1e26121.jpg",
+    "static/media/facebook.png": "/static/media/facebook.4370ac0b2a7136b8ddab.png",
     "static/media/send_mail.png": "/static/media/send_mail.78d16fd228e640b3fdee.png",
+    "static/media/twitter.png": "/static/media/twitter.0592b58c5721bac7d7c9.png",
     "index.html": "/index.html",
-    "main.9195860d.css.map": "/static/css/main.9195860d.css.map",
-    "main.a2daa09f.js.map": "/static/js/main.a2daa09f.js.map",
+    "main.e0e0e3b0.css.map": "/static/css/main.e0e0e3b0.css.map",
+    "main.8d2dab19.js.map": "/static/js/main.8d2dab19.js.map",
     "787.418369bc.chunk.js.map": "/static/js/787.418369bc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9195860d.css",
-    "static/js/main.a2daa09f.js"
+    "static/css/main.e0e0e3b0.css",
+    "static/js/main.8d2dab19.js"
   ]
 }

@@ -10,5 +10,15 @@
 .page {
     margin: 0 auto;
     padding: 10px;
+    background-image: url('./images/hillsborough.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+    color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000; /* Apply black shadow in all directions to create the outline */
 }
 

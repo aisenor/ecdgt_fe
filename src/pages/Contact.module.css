@@ -14,7 +14,21 @@ body {
     /*max-width: 500px;*/
     /*margin: 0 auto;*/
 }
+.socialMediaIcons {
+    display: flex; /* Display icons in a row */
+    justify-content: center; /* Center align the icons horizontally */
+    margin-top: 20px; /* Add some space between the form and social media icons */
+    padding-bottom: 10px;
+}
 
+.socialMediaIcons a {
+    margin: 0 10px; /* Add space between each icon */
+}
+
+.socialMediaIcons img {
+    width: 40px; /* Set a fixed width for the icons */
+    height: 40px; /* Set a fixed height for the icons */
+}
 
 .page {
     font-size: 24px;
