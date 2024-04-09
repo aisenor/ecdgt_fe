@@ -1,6 +1,6 @@
 .menu-icon {
-  display: none;
-  cursor: pointer;
+    display: none;
+    cursor: pointer;
 }
 
 .navbar {
@@ -11,6 +11,8 @@
     padding: 0 20px;
     align-items: center;
     justify-content: space-between;
+    position: relative; /* Add position: relative */
+    z-index: 2; /* Add z-index to ensure navbar appears above background image */
 }
 
 .navbar h1 a{
@@ -22,15 +24,15 @@
 }
 
 .bar {
-  height: 5px;
-  width: 30px;
-  background-color: #E9FFF9;
-  margin: 6px 0;
-  transition: 0.4s;
+    height: 5px;
+    width: 30px;
+    background-color: #E9FFF9;
+    margin: 6px 0;
+    transition: 0.4s;
 }
 
 .navbar.mobile {
-  position: relative;
+    position: relative;
 }
 
 .nav-list {
