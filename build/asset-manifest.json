@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.84b0fd57.css",
-    "main.js": "/static/js/main.2619811e.js",
+    "main.js": "/static/js/main.b83e4df5.js",
     "static/js/787.418369bc.chunk.js": "/static/js/787.418369bc.chunk.js",
     "static/media/hillsborough.jpg": "/static/media/hillsborough.f19bcfeef01d4e475808.jpg",
     "static/media/dark_logo.png": "/static/media/dark_logo.a5b83de5315059ee2fef.png",
@@ -9,14 +9,13 @@
     "static/media/stock.jpg": "/static/media/stock.b9e15422ab7ad1e26121.jpg",
     "static/media/facebook.png": "/static/media/facebook.4370ac0b2a7136b8ddab.png",
     "static/media/send_mail.png": "/static/media/send_mail.78d16fd228e640b3fdee.png",
-    "static/media/twitter.png": "/static/media/twitter.0592b58c5721bac7d7c9.png",
     "index.html": "/index.html",
     "main.84b0fd57.css.map": "/static/css/main.84b0fd57.css.map",
-    "main.2619811e.js.map": "/static/js/main.2619811e.js.map",
+    "main.b83e4df5.js.map": "/static/js/main.b83e4df5.js.map",
     "787.418369bc.chunk.js.map": "/static/js/787.418369bc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84b0fd57.css",
-    "static/js/main.2619811e.js"
+    "static/js/main.b83e4df5.js"
   ]
 }

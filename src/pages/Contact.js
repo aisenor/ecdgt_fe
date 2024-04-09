@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Contact.module.css';
 import MailIcon from './images/send_mail.png';
-import TwitterIcon from './images/twitter.png';
 import FacebookIcon from './images/facebook.png';
 import InstagramIcon from './images/instagram.png';
 
@@ -11,6 +10,7 @@ const Contact = () => {
         email: '',
         message: ''
     });
+    const [submitting, setSubmitting] = useState(false); // State to control button disable
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,6 +18,7 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setSubmitting(true); // Disable the button
         try {
             await fetch(`${process.env.REACT_APP_API_URL}/contact/`, {
                 method: 'POST',
@@ -26,9 +27,18 @@ const Contact = () => {
                 },
                 body: JSON.stringify(formData),
             });
+            // Clear form after successful submission
+            setFormData({ name: '', email: '', message: '' });
+            // Show success message
+            alert('We got your email!');
+            // Enable the button after 5 seconds
+            setTimeout(() => {
+                setSubmitting(false);
+            }, 5000);
         } catch (error) {
             console.error('Error sending email:', error);
             alert('Failed to send email. Please try again later.');
+            setSubmitting(false); // Enable the button in case of error
         }
     };
 
@@ -90,8 +100,12 @@ const Contact = () => {
                             />
                         </div>
                         <br/>
-                        <button type="submit" className={styles.submitButton}>
-                            Submit
+                        <button
+                            type="submit"
+                            className={styles.submitButton}
+                            disabled={submitting} // Disable button based on state
+                        >
+                            {submitting ? 'Submitting...' : 'Submit'}
                         </button>
                     </form>
                 </div>
