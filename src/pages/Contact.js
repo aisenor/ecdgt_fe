@@ -41,13 +41,13 @@ const Contact = () => {
             <div className={styles.socialMediaContainer}>
                 <h3 className={styles.page}>Connect with us on social media!</h3>
                 <div className={styles.socialMediaIcons}>
-                    <a href="link-to-twitter-profile" target="_blank">
+                    <a href="link-to-twitter-profile" target="_blank" rel="noopener noreferrer">
                         <img src={TwitterIcon} alt="Twitter"/>
                     </a>
-                    <a href="https://www.facebook.com/EastCoastDGT?locale=de_DE" target="_blank">
+                    <a href="https://www.facebook.com/EastCoastDGT?locale=de_DE" target="_blank" rel="noopener noreferrer">
                         <img src={FacebookIcon} alt="Facebook"/>
                     </a>
-                    <a href="https://www.instagram.com/ec_dgt/" target="_blank">
+                    <a href="https://www.instagram.com/ec_dgt/" target="_blank" rel="noopener noreferrer">
                         <img src={InstagramIcon} alt="Instagram"/>
                     </a>
                 </div>
