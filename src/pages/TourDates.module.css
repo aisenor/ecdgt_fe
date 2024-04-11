@@ -16,11 +16,12 @@
 }
 
 .submitButton {
-    background-image: linear-gradient(to right, #9ED8DB, #467599); /* Gradient from left to right */
-    color: white;
+    background-image: linear-gradient(to right, var(--secondary-color), var(--primary-color)); /* Gradient from left to right */
+    color: var(--text-color);
     opacity: 1;
     font-weight: bold;
-    font-size: 100%;
+    font-size: 90%;
+    font-family: var(--body-font);
     margin-bottom: 20px;
     margin-top: 10px;
 
@@ -38,8 +39,8 @@
     border-radius: 25px;
 
     &:hover {
-        background-image: linear-gradient(to right, #467599, #9ED8DB);
-        color: #1D3354;
+        background-image: linear-gradient(to right, var(--secondary-color), var(--text-color));
+        color: var(--primary-color);
     }
 }
 
@@ -58,12 +59,14 @@
 .selected {
     color: white;
     font-weight: normal;
+    font-family: var(--body-font);
 }
 
 .blap {
     width: 100%;
     text-align: center;
     font-size: 16px;
+    font-family: var(--body-font);
     margin-bottom: 10px;
     line-height: 1.5;
 }
@@ -113,4 +116,8 @@
         background-color: #1D3354;
         color: white;
     }
+}
+
+h2 {
+    font-family: var(--headline-font);
 }

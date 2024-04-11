@@ -3,3 +3,10 @@
 #9ED8DB - light blue (hover)
 #467599 - blue (for tables and headers)
 #1D3354 - dark blue (nav bar)
+
+#0E202B - Prussian Blue - dark feature
+#3F8CB4 - Blue NCS - light secondary
+#F1FFFF - Azure white
+#f30035 - Pantone Red - highlight
+
+use var(--primary-color) to reference colors set in theme.css in root directory

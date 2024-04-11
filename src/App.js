@@ -6,6 +6,7 @@ import TourDates from './pages/TourDates';
 import TourStandings from './pages/TourStandings';
 import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
+import './theme.css'; // Import custom CSS variables
 
 function App() {
   const [data, setData] = useState({});

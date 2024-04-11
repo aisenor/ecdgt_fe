@@ -1,18 +1,18 @@
 .react-calendar {
     min-width: 90%;
     max-width: 100%;
-    background-color: #fff;
+    background-color: white;
     color: #222;
     border-radius: 8px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--subtitle-font);
     font-size: 1.2rem;
     line-height: 1.125em;
     margin: 10px;
 }
 
 .react-calendar__navigation button {
-    color: #467599;
+    color: var(--secondary-color);
     min-width: 44px;
     background: none;
     font-size: 1.25rem;
@@ -20,7 +20,8 @@
 }
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
-    background-color: #f8f8fa;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
 .react-calendar__navigation button[disabled] {
     background-color: #f0f0f0;
@@ -51,40 +52,40 @@ abbr[title] {
 
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
-    background: #f8f8fa;
-    color: #467599;
+    background: var(--text-color);
+    color: var(--secondary-color);
     border-radius: 6px;
 }
 .react-calendar__tile--now {
-    background: #9ED8DB;
+    background: var(--secondary-color);
     border-radius: 6px;
     font-weight: bold;
-    color: #467599;
+    color: var(--primary-color);
 }
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
-    background: #1D3354;
+    background: var(--primary-color);
     border-radius: 6px;
     font-weight: bold;
-    color: #467599;
+    color: var(--secondary-color);
 }
 .react-calendar__tile--hasActive:enabled:hover,
 .react-calendar__tile--hasActive:enabled:focus {
-    background: #f8f8fa;
+    background: var(--text-color);
 }
 .react-calendar__tile--active {
-    background: #467599;
+    background: var(--primary-color);
     border-radius: 6px;
     font-weight: bold;
-    color: white;
+    color: var(--text-color);
 }
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-    background: #467599;
-    color: white;
+    background: var(--primary-color);
+    color: var(--text-color);
 }
 
 .react-calendar__month-view__days__day--weekend{
-    color: #1D3354;
+    color: var(--primary-color);
 }
 

@@ -27,14 +27,16 @@ const About = () => {
             The ECDGT will standardize registration fees, payout structure, player experience all while allowing our
             Tournament Directors (TDs)
             the flexibility to host amazing events at their local courses. Each tour stop will feature:
-            <ul>
-                <li>Well marked Out of Bounds areas (OB)</li>
-                <li>Detailed caddy books</li>
-                <li>Player packs that are flexible and fun</li>
-                <li>Added cash on the pro side</li>
-                <li>Closest to the Pin (CTP) competitions</li>
-                <li>Win your card, win a prize</li>
-            </ul>
+        </p>
+        <ul>
+            <li>Well marked Out of Bounds areas (OB)</li>
+            <li>Detailed caddy books</li>
+            <li>Player packs that are flexible and fun</li>
+            <li>Added cash on the pro side</li>
+            <li>Closest to the Pin (CTP) competitions</li>
+            <li>Win your card, win a prize</li>
+        </ul>
+        <p>
             There will also be individual event awards as well as season long points that will count towards tour prizes for players who qualify.
         </p>
         <p>
@@ -43,12 +45,14 @@ const About = () => {
         </p>
         <p>
             Collectively, our partners run over 100 Professional Disc Golf Association (PDGA) events, including:
-            <ul>
-                <li>10 B Tiers</li>
-                <li>5 National Championships</li>
-                <li>Countless leagues and club events</li>
-                <li>Canada's first ever Disc Golf Pro Tour (DGPT) event</li>
-            </ul>
+        </p>
+        <ul>
+            <li>10 B Tiers</li>
+            <li>5 National Championships</li>
+            <li>Countless leagues and club events</li>
+            <li>Canada's first ever Disc Golf Pro Tour (DGPT) event</li>
+        </ul>
+        <p>
             This group of individuals have all contributed to making the East Coast of Canada an international success story in the disc golf community.
             We are thrilled to be able to offer something even better by working together towards a shared goal.
         </p>

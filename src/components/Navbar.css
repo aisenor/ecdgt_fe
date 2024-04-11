@@ -5,7 +5,7 @@
 
 .navbar {
     list-style-type: none;
-    background-color: #1D3354;
+    background-color: var(--primary-color);
     display: flex;
     /*margin: 0;*/
     padding: 0 20px;
@@ -18,7 +18,7 @@
 .navbar h1 a{
     text-decoration: none;
     position: relative;
-    color: #E9FFF9;
+    color: var(--text-color);
     font-size: 1.8em;
     font-style: italic;
 }
@@ -26,7 +26,7 @@
 .bar {
     height: 5px;
     width: 30px;
-    background-color: #E9FFF9;
+    background-color: var(--text-color);
     margin: 6px 0;
     transition: 0.4s;
 }
@@ -52,7 +52,7 @@
 }
 
 .nav-item {
-    color: #E9FFF9;
+    color: var(--text-color);
     font-size: 28px;
     font-family: arpona, serif;
     font-weight: 400;
@@ -68,9 +68,9 @@
 }
 
 .nav-item a {
-    color: #E9FFF9;
+    color: var(--text-color);
     font-size: 28px;
-    font-family: arpona, serif;
+    font-family: var(--headline-font);
     font-weight: 400;
     font-style: normal;
     margin: 0;
@@ -85,7 +85,7 @@
 }
 
 .nav-item a:hover {
-    color: #9ED8DB;
+    color: var(--secondary-color);
     cursor: pointer;
 }
 
@@ -93,7 +93,7 @@
     height: 100px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     .menu-icon {
         display: block;
     }
@@ -104,7 +104,7 @@
         top: 110px;
         left: 0;
         width: 100%;
-        background-color: #1D3354;
+        background-color: var(--primary-color);
         transition: 0.5s;
         display: none;
     }
@@ -118,7 +118,7 @@
         width: 100%;
         text-align: center;
         padding: 10px 0;
-        border-bottom: 1px solid #E9FFF9;
+        border-bottom: 1px solid var(--text-color);
         margin: 0;
     }
 

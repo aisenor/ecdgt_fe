@@ -1,0 +1,38 @@
+:root {
+    --primary-color: #0E202B; /*Prussian Blue - dark feature*/
+    --secondary-color: #3F8CB4; /*Blue NCS - light secondary*/
+    --accent-color: #f30035; /*Pantone Red*/
+    --text-color: #F1FFFF; /*Azure white*/
+
+    @font-face {
+        font-family: 'IndustryIncBase';
+        src: url('pages/fonts/IndustryInc-Base.otf') format('opentype');
+    }
+
+    @font-face {
+        font-family: 'AntarcticanMonoBook';
+        src: url('pages/fonts/AntarcticanMono-Book.eot');
+        src: url('pages/fonts/AntarcticanMono-Book.eot?#iefix') format('embedded-opentype'),
+        url('pages/fonts/AntarcticanMono-Book.woff2') format('woff2'),
+        url('pages/fonts/AntarcticanMono-Book.woff') format('woff'),
+        url('pages/fonts/AntarcticanMono-Book.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'AntarcticanHeadlineBook';
+        src: url('pages/fonts/AntarcticanHeadline-Book.eot');
+        src: url('pages/fonts/AntarcticanHeadline-Book.eot?#iefix') format('embedded-opentype'),
+        url('pages/fonts/AntarcticanHeadline-Book.woff2') format('woff2'),
+        url('pages/fonts/AntarcticanHeadline-Book.woff') format('woff'),
+        url('pages/fonts/AntarcticanHeadline-Book.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+
+    --headline-font: IndustryIncBase;
+    --subtitle-font: AntarcticanHeadlineBook;
+    --body-font: AntarcticanMonoBook;
+}

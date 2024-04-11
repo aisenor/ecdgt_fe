@@ -2,6 +2,9 @@ body {
     background-color: #f0f0f0;
 }
 
+h3 {
+    font-family: var(--headline-font);
+}
 /*img {*/
 /*    max-width: 400px;*/
 /*}*/
@@ -38,7 +41,7 @@ body {
     justify-content: center;
     max-width: 500px;
     margin: 0 auto;
-    color: #1D3354;
+    color: var(--primary-color);
 }
 
 .formContainer {
@@ -61,6 +64,7 @@ body {
 
 
 .form {
+    font-family: var(--body-font);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -79,6 +83,7 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
+    font-family: var(--body-font);
     width: 95%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -86,11 +91,12 @@ textarea {
 }
 
 button[type="submit"] {
-    background-image: linear-gradient(to right, #9ED8DB, #467599); /* Gradient from left to right */
-    color: white;
+    background-image: linear-gradient(to right, var(--secondary-color), var(--primary-color)); /* Gradient from left to right */
+    color: var(--text-color);
     opacity: 1;
     font-weight: bold;
     font-size: 100%;
+    font-family: var(--body-font);
 
     border: none;
     padding: 10px 20px;
@@ -106,8 +112,8 @@ button[type="submit"] {
     border-radius: 25px;
 
     &:hover {
-        background-image: linear-gradient(to right, #467599, #9ED8DB);
-        color: #1D3354;
+        background-image: linear-gradient(to right, var(--secondary-color), var(--text-color));
+        color: var(--primary-color);
     }
 }
 

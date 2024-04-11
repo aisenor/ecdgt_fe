@@ -53,7 +53,7 @@ const TourStandings = () => {
             <h2>Standings by Divisions</h2>
             <div className={styles.buttonContainer}>
                 <button onClick={handleResetFilter} className={styles.resetDivisionButton}>
-                    Reset Filter
+                    Reset
                 </button>
                 {divisionData.map((division, index) => (
                     <button

@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'IndustryIncBase';
+    src: url('./fonts/IndustryInc-Base.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'AntarcticanMonoBook';
+    src: url('./fonts/AntarcticanMono-Book.eot');
+    src: url('./fonts/AntarcticanMono-Book.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/AntarcticanMono-Book.woff2') format('woff2'),
+    url('./fonts/AntarcticanMono-Book.woff') format('woff'),
+    url('./fonts/AntarcticanMono-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -10,5 +26,18 @@
 .page {
     margin: 0 auto;
     padding: 10px;
+    color: var(--primary-color);
+}
+
+.page h1 {
+    font-family: var(--headline-font);
+}
+
+.page p {
+    font-family: var(--body-font);
+}
+
+.page ul {
+    font-family: var(--body-font);
 }
 
