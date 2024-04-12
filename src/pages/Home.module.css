@@ -1,24 +1,45 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 500px;
-    margin: 0 auto;
+.homeContainer {
+    width: 100%;
+    height: 100px;
+    /*overflow: hidden; !* Crop the image to fit the container *!*/
+    position: relative; /* Required for absolute positioning of the wrapper */
 }
+
+.bannerWrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.bannerImage {
+    width: 100%;
+    height: auto; /* Let the browser calculate the appropriate height based on the aspect ratio */
+    object-fit: cover; /* Crop the image to cover the container */
+}
+
 
 .page {
     margin: 0 auto;
     padding: 10px;
-    background-image: url('./images/hillsborough.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(100%);
-    color: white;
-    text-shadow:
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px 1px 0 #000,
-            1px 1px 0 #000; /* Apply black shadow in all directions to create the outline */
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    /*background-image: url('./images/hillsborough.jpg');*/
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    /*filter: grayscale(100%);*/
+    /*color: white;*/
+    /*text-shadow:*/
+    /*        -1px -1px 0 #000,*/
+    /*        1px -1px 0 #000,*/
+    /*        -1px 1px 0 #000,*/
+    /*        1px 1px 0 #000; !* Apply black shadow in all directions to create the outline *!*/
+}
+
+h1 {
+    font-family: var(--headline-font);
+}
+
+p {
+    font-family: var(--body-font);
 }
 

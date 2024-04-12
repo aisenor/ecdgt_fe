@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.45bb3717.css",
-    "main.js": "/static/js/main.6b62d3fb.js",
+    "main.css": "/static/css/main.ce3e2487.css",
+    "main.js": "/static/js/main.6ecff294.js",
     "static/js/787.418369bc.chunk.js": "/static/js/787.418369bc.chunk.js",
-    "static/media/hillsborough.jpg": "/static/media/hillsborough.f19bcfeef01d4e475808.jpg",
     "static/media/dark_logo.png": "/static/media/dark_logo.a5b83de5315059ee2fef.png",
+    "static/media/hillsboroughBanner.jpg": "/static/media/hillsboroughBanner.d3689fdaf0e99d09e0d3.jpg",
     "static/media/instagram.png": "/static/media/instagram.a8c6981a9c488f428cb6.png",
     "static/media/AntarcticanHeadline-Book.eot": "/static/media/AntarcticanHeadline-Book.bbad286de5d61432c2bd.eot",
     "static/media/AntarcticanHeadline-Book.ttf": "/static/media/AntarcticanHeadline-Book.990514e3ab44b3b9dded.ttf",
@@ -19,12 +19,12 @@
     "static/media/send_mail.png": "/static/media/send_mail.78d16fd228e640b3fdee.png",
     "static/media/IndustryInc-Base.otf": "/static/media/IndustryInc-Base.9a5e1e52ff5adc0df401.otf",
     "index.html": "/index.html",
-    "main.45bb3717.css.map": "/static/css/main.45bb3717.css.map",
-    "main.6b62d3fb.js.map": "/static/js/main.6b62d3fb.js.map",
+    "main.ce3e2487.css.map": "/static/css/main.ce3e2487.css.map",
+    "main.6ecff294.js.map": "/static/js/main.6ecff294.js.map",
     "787.418369bc.chunk.js.map": "/static/js/787.418369bc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.45bb3717.css",
-    "static/js/main.6b62d3fb.js"
+    "static/css/main.ce3e2487.css",
+    "static/js/main.6ecff294.js"
   ]
 }
