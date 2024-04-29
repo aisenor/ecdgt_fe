@@ -10,7 +10,9 @@ const TourStandings = () => {
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}/standings`)
             .then(response => response.json())
-            .then(data => setTourStandings(data.standings))
+            .then(data => {
+                setTourStandings(data);
+            })
             .catch(error => console.error('Error fetching tour standings:', error));
     }, []);
 
@@ -38,14 +40,32 @@ const TourStandings = () => {
     };
 
     const getDivisionName = (divisionId) => {
-        const division = divisionData.find(div => div.id === divisionId);
+        const division = divisionData.find(div => div.id === parseInt(divisionId));
         return division ? division.name : 'N/A';
     };
 
     const getPlayerName = (playerId) => {
-        const player = players.find(p => p.id === playerId);
+        const player = players.find(p => p.id === parseInt(playerId));
         return player ? player.name : 'N/A';
     };
+
+    const getPlayerRank = (divisionId, playerId) => {
+        // Get the tour standings for the selected division
+        const divisionStandings = tourStandings[divisionId];
+
+        // Convert player data into an array for easier sorting
+        const playersArray = Object.entries(divisionStandings).map(([id, data]) => ({ id, ...data }));
+
+        // Sort players by tour points in descending order
+        playersArray.sort((a, b) => b.tour_points - a.tour_points);
+
+        // Find the index of the player with the given playerId in the sorted array
+        const playerIndex = playersArray.findIndex(player => player.id === playerId);
+
+        // Return the rank (index + 1) if player is found, otherwise return 'N/A'
+        return playerIndex !== -1 ? playerIndex + 1 : 'N/A';
+    };
+
 
     return (
         <div className={styles.page}>
@@ -70,21 +90,24 @@ const TourStandings = () => {
                 <thead>
                 <tr>
                     {!selectedDivision && <th>Division</th>}
-                    <th>Rank</th>
+                    {selectedDivision && <th>Rank</th>}
                     <th>Name</th>
                     <th>Points</th>
                 </tr>
                 </thead>
                 <tbody>
-                {tourStandings
-                    .filter(player => !selectedDivision || getDivisionName(player.division) === selectedDivision)
-                    .map((player, index) => (
-                        <tr key={index}>
-                            {!selectedDivision && <td>{getDivisionName(player.division)}</td>}
-                            <td>{player.rank}</td>
-                            <td>{getPlayerName(player.id)}</td>
-                            <td>{player.points}</td>
-                        </tr>
+                {tourStandings &&
+                    Object.entries(tourStandings).map(([divisionId, playersData]) => (
+                        Object.entries(playersData).map(([playerId, data]) => (
+                            (!selectedDivision || getDivisionName(divisionId) === selectedDivision) && (
+                                <tr key={`${playerId}-${divisionId}`}>
+                                    {!selectedDivision && <td>{getDivisionName(divisionId)}</td>}
+                                    {selectedDivision && <td>{getPlayerRank(divisionId, playerId)}</td>}
+                                    <td>{getPlayerName(playerId)}</td>
+                                    <td>{data.tour_points}</td>
+                                </tr>
+                            )
+                        ))
                     ))}
                 </tbody>
             </table>
