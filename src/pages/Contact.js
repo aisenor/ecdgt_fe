@@ -3,6 +3,7 @@ import styles from './Contact.module.css';
 import MailIcon from './images/send_mail.png';
 import FacebookIcon from './images/facebook.png';
 import InstagramIcon from './images/instagram.png';
+import TwitterIcon from './images/twitter.png';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -51,9 +52,9 @@ const Contact = () => {
             <div className={styles.socialMediaContainer}>
                 <h3 className={styles.page}>Connect with us on social media!</h3>
                 <div className={styles.socialMediaIcons}>
-                    {/*<a href="link-to-twitter-profile" target="_blank" rel="noopener noreferrer">*/}
-                    {/*    <img src={TwitterIcon} alt="Twitter"/>*/}
-                    {/*</a>*/}
+                    <a href="https://www.twitter.com/eastcoastdgt" target="_blank" rel="noopener noreferrer">
+                        <img src={TwitterIcon} alt="Twitter"/>
+                    </a>
                     <a href="https://www.facebook.com/EastCoastDGT?locale=de_DE" target="_blank" rel="noopener noreferrer">
                         <img src={FacebookIcon} alt="Facebook"/>
                     </a>
