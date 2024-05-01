@@ -3,10 +3,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .calendarContainer {
     width: 100vw;
+    max-width: 1000px;
     /*min-width: 75%;*/
     /*max-width: 95%;*/
     display: flex;
