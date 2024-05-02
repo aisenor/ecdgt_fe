@@ -30,7 +30,6 @@ const TourStandings = () => {
             .catch(error => console.error('Error fetching divisions:', error));
     }, []);
 
-
     const handleClick = (divisionName) => {
         setSelectedDivision(divisionName);
     };
@@ -50,22 +49,35 @@ const TourStandings = () => {
     };
 
     const getPlayerRank = (divisionId, playerId) => {
-        // Get the tour standings for the selected division
         const divisionStandings = tourStandings[divisionId];
-
-        // Convert player data into an array for easier sorting
         const playersArray = Object.entries(divisionStandings).map(([id, data]) => ({ id, ...data }));
-
-        // Sort players by tour points in descending order
         playersArray.sort((a, b) => b.tour_points - a.tour_points);
-
-        // Find the index of the player with the given playerId in the sorted array
         const playerIndex = playersArray.findIndex(player => player.id === playerId);
-
-        // Return the rank (index + 1) if player is found, otherwise return 'N/A'
         return playerIndex !== -1 ? playerIndex + 1 : 'N/A';
     };
 
+    const getSortedStandings = () => {
+        const standings = [];
+        Object.entries(tourStandings).forEach(([divisionId, playersData]) => {
+            Object.entries(playersData).forEach(([playerId, data]) => {
+                if (!selectedDivision || getDivisionName(divisionId) === selectedDivision) {
+                    standings.push({
+                        division: getDivisionName(divisionId),
+                        rank: getPlayerRank(divisionId, playerId),
+                        name: getPlayerName(playerId),
+                        points: data.tour_points
+                    });
+                }
+            });
+        });
+
+        if (!selectedDivision) {
+            // Sort standings by points if no division is selected
+            standings.sort((a, b) => b.points - a.points);
+        }
+
+        return standings;
+    };
 
     return (
         <div className={styles.page}>
@@ -75,16 +87,20 @@ const TourStandings = () => {
                 <button onClick={handleResetFilter} className={styles.resetDivisionButton}>
                     Reset
                 </button>
-                {divisionData.map((division, index) => (
-                    <button
-                        key={index}
-                        onClick={() => handleClick(division.name)}
-                        className={`${styles.divisionButton} ${selectedDivision === division.name ? styles.selected : ''}`}
-                    >
-                        {division.name}
-                    </button>
-                ))}
+                {divisionData
+                    .slice()
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .map((division, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handleClick(division.name)}
+                            className={`${styles.divisionButton} ${selectedDivision === division.name ? styles.selected : ''}`}
+                        >
+                            {division.name}
+                        </button>
+                    ))}
             </div>
+
             <h2>Standings</h2>
             <table className={styles.styledTable}>
                 <thead>
@@ -96,19 +112,14 @@ const TourStandings = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {tourStandings &&
-                    Object.entries(tourStandings).map(([divisionId, playersData]) => (
-                        Object.entries(playersData).map(([playerId, data]) => (
-                            (!selectedDivision || getDivisionName(divisionId) === selectedDivision) && (
-                                <tr key={`${playerId}-${divisionId}`}>
-                                    {!selectedDivision && <td>{getDivisionName(divisionId)}</td>}
-                                    {selectedDivision && <td>{getPlayerRank(divisionId, playerId)}</td>}
-                                    <td>{getPlayerName(playerId)}</td>
-                                    <td>{data.tour_points}</td>
-                                </tr>
-                            )
-                        ))
-                    ))}
+                {getSortedStandings().map((player, index) => (
+                    <tr key={index}>
+                        {!selectedDivision && <td>{player.division}</td>}
+                        {selectedDivision && <td>{player.rank}</td>}
+                        <td>{player.name}</td>
+                        <td>{player.points}</td>
+                    </tr>
+                ))}
                 </tbody>
             </table>
         </div>
