@@ -52,9 +52,18 @@ const TourStandings = () => {
         const divisionStandings = tourStandings[divisionId];
         const playersArray = Object.entries(divisionStandings).map(([id, data]) => ({ id, ...data }));
         playersArray.sort((a, b) => b.tour_points - a.tour_points);
+
+        // Find the index of the player
         const playerIndex = playersArray.findIndex(player => player.id === playerId);
+
+        // Handle ties: if the previous player has the same points, assign the same rank
+        if (playerIndex > 0 && playersArray[playerIndex].tour_points === playersArray[playerIndex - 1].tour_points) {
+            return getPlayerRank(divisionId, playersArray[playerIndex - 1].id);
+        }
+
         return playerIndex !== -1 ? playerIndex + 1 : 'N/A';
     };
+
 
     const getSortedStandings = () => {
         const standings = [];
@@ -74,10 +83,14 @@ const TourStandings = () => {
         if (!selectedDivision) {
             // Sort standings by points if no division is selected
             standings.sort((a, b) => b.points - a.points);
+        } else {
+            // Sort standings within each division by rank
+            standings.sort((a, b) => a.rank - b.rank);
         }
 
         return standings;
     };
+
 
     return (
         <div className={styles.page}>
@@ -89,7 +102,14 @@ const TourStandings = () => {
                 </button>
                 {divisionData
                     .slice()
-                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .sort((a, b) => {
+                        // First, sort by division
+                        const divisionSort = a.name.localeCompare(b.name);
+                        if (divisionSort !== 0) return divisionSort;
+
+                        // If divisions are the same, sort by points within the division
+                        return b.points - a.points; // Change to a.points - b.points for ascending order
+                    })
                     .map((division, index) => (
                         <button
                             key={index}
@@ -99,6 +119,7 @@ const TourStandings = () => {
                             {division.name}
                         </button>
                     ))}
+
             </div>
 
             <h2>Standings</h2>
